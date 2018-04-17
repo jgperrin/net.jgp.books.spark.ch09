@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>net.jgp.books</groupId>
-  <artifactId>sparkWithJava-chapter07</artifactId>
+  <artifactId>sparkWithJava-chapter09</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -50,14 +50,14 @@
         </exclusion>
       </exclusions>
     </dependency>
-    
+
     <!-- Metadata -->
     <dependency>
       <groupId>com.drewnoakes</groupId>
       <artifactId>metadata-extractor</artifactId>
       <version>${metadata-extractor.version}</version>
     </dependency>
-    
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

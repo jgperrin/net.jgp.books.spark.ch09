@@ -35,6 +35,7 @@ public class ExifDirectoryDataSource implements RelationProvider {
             case K.PATH:
                 photoLister.setPath(value);
                 break;
+                
             case K.RECURSIVE:
                 if (value.toLowerCase().charAt(0) == 't') {
                     photoLister.setRecursive(true);
@@ -42,6 +43,7 @@ public class ExifDirectoryDataSource implements RelationProvider {
                     photoLister.setRecursive(false);
                 }
                 break;
+                
             case K.LIMIT:
                 int limit;
                 try {
@@ -54,6 +56,7 @@ public class ExifDirectoryDataSource implements RelationProvider {
                 }
                 photoLister.setLimit(limit);
                 break;
+                
             case K.EXTENSIONS:
                 String[] extensions = value.split(",");
                 for (int i = 0; i < extensions.length; i++) {
