@@ -4,12 +4,22 @@ import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
+/**
+ * Ingest metadata from a directory containing photos, make them available as
+ * EXIF.
+ * 
+ * @author jgp
+ */
 public class PhotoMetadataIngestionApp {
   public static void main(String[] args) {
     PhotoMetadataIngestionApp app = new PhotoMetadataIngestionApp();
     app.start();
   }
 
+  /**
+   * Start the application
+   * @return <code>true</code> if all is ok.
+   */
   private boolean start() {
     SparkSession spark = SparkSession.builder()
         .appName("EXIF to Dataset")
