@@ -1,14 +1,13 @@
-/**
- * 
- */
 package net.jgp.books.sparkWithJava.ch09.x.ds.exif;
 
 import org.apache.spark.sql.sources.DataSourceRegister;
 
 /**
+ * Defines the "short name"
+ * 
  * @author jgp
  */
-public class DefaultSource22
+public class DataSourceShortnameSignature
     extends ExifDirectoryDataSource
     implements DataSourceRegister {
 

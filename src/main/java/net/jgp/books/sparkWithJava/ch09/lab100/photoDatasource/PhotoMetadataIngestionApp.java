@@ -17,16 +17,20 @@ public class PhotoMetadataIngestionApp {
   }
 
   /**
-   * Start the application
+   * Starts the application
+   * 
    * @return <code>true</code> if all is ok.
    */
   private boolean start() {
+    // Get a session
     SparkSession spark = SparkSession.builder()
         .appName("EXIF to Dataset")
         .master("local").getOrCreate();
 
+    // Import directory
     String importDirectory = "data";
 
+    // read the data
     Dataset<Row> df = spark.read()
         .format("exif")
         .option("recursive", "true")
