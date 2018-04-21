@@ -7,7 +7,7 @@ import org.apache.spark.sql.sources.DataSourceRegister;
  * 
  * @author jgp
  */
-public class DataSourceShortnameSignature
+public class ExifDirectoryDataSourceShortnameAdvertiser
     extends ExifDirectoryDataSource
     implements DataSourceRegister {
 
