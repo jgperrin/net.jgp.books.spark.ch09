@@ -43,7 +43,7 @@ public class ExifDirectoryDataSource implements RelationProvider {
         new RecursiveExtensionFilteredLister();
     for (java.util.Map.Entry<String, String> entry : optionsAsJavaMap
         .entrySet()) {
-      String key = entry.getKey();
+      String key = entry.getKey().toLowerCase();
       String value = entry.getValue();
       log.debug("[{}] --> [{}]", key, value);
       switch (key) {
@@ -65,7 +65,7 @@ public class ExifDirectoryDataSource implements RelationProvider {
             limit = Integer.valueOf(value);
           } catch (NumberFormatException e) {
             log.error(
-                "Illegal value for limit, exting a number, got: {}. {}. Ignoring parameter.",
+                "Illegal value for limit, expecting a number, got: {}. {}. Ignoring parameter.",
                 value, e.getMessage());
             limit = -1;
           }
