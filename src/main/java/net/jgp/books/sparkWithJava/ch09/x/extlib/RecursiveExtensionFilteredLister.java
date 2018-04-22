@@ -55,8 +55,14 @@ public class RecursiveExtensionFilteredLister implements Serializable {
     this.hasChanged = true;
   }
 
+  /**
+   * Checks if the file is matching our constraints.
+   * 
+   * @param dir
+   * @param name
+   * @return
+   */
   private boolean check(File dir, String name) {
-    // log.debug("{}/{}", dir, name);
     File f = new File(dir, name);
     if (f.isDirectory()) {
       if (recursive) {
