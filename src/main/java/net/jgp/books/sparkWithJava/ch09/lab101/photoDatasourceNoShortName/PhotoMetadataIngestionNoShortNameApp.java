@@ -12,7 +12,8 @@ import org.apache.spark.sql.SparkSession;
  */
 public class PhotoMetadataIngestionNoShortNameApp {
   public static void main(String[] args) {
-    PhotoMetadataIngestionNoShortNameApp app = new PhotoMetadataIngestionNoShortNameApp();
+    PhotoMetadataIngestionNoShortNameApp app =
+        new PhotoMetadataIngestionNoShortNameApp();
     app.start();
   }
 
@@ -32,7 +33,8 @@ public class PhotoMetadataIngestionNoShortNameApp {
 
     // read the data
     Dataset<Row> df = spark.read()
-        .format("net.jgp.books.sparkWithJava.ch09.x.ds.exif.ExifDirectoryDataSourceShortnameAdvertiser")
+        .format(
+            "net.jgp.books.sparkWithJava.ch09.x.ds.exif.ExifDirectoryDataSourceShortnameAdvertiser")
         .option("recursive", "true")
         .option("limit", "100000")
         .option("extensions", "jpg,jpeg")
