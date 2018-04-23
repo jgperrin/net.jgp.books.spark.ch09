@@ -88,13 +88,15 @@ public class ExifDirectoryRelation
     PhotoMetadata photo;
 
     for (File photoToProcess : photosToProcess) {
-      photo = ExifUtils.processFromFilename(photoToProcess.getAbsolutePath());
+      photo = ExifUtils.processFromFilename(
+          photoToProcess.getAbsolutePath());
       list.add(photo);
     }
     return list;
   }
 
-  public void setPhotoLister(RecursiveExtensionFilteredLister photoLister) {
+  public void setPhotoLister(
+      RecursiveExtensionFilteredLister photoLister) {
     this.photoLister = photoLister;
   }
 }
