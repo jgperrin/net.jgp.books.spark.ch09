@@ -193,6 +193,9 @@ public class SparkBeanUtils {
     return columnName;
   }
 
+  /**
+   * Builds a row using the schema and the bean.
+   */
   public static Row getRowFromBean(Schema schema, Object bean) {
     List<Object> cells = new ArrayList<>();
 
@@ -203,25 +206,30 @@ public class SparkBeanUtils {
       try {
         method = bean.getClass().getMethod(methodName);
       } catch (NoSuchMethodException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
+        log.error("The method {} does not exists: {}.", methodName,
+            e.getMessage());
         return null;
       } catch (SecurityException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
+        log.error("The method {} raised a security concern: {}.",
+            methodName, e.getMessage());
         return null;
       }
       try {
         cells.add(method.invoke(bean));
       } catch (IllegalAccessException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
+        log.error("The method {} is not accessible: {}.", methodName,
+            e.getMessage());
+        return null;
       } catch (IllegalArgumentException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
+        // this should never happen as we have check that the getter has no
+        // argument, but we never know, right?
+        log.error("The method {} is expecting arguments: {}.",
+            methodName, e.getMessage());
+        return null;
       } catch (InvocationTargetException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
+        log.error("The method {} raised an invocation target issue: {}.",
+            methodName, e.getMessage());
+        return null;
       }
     }
 
