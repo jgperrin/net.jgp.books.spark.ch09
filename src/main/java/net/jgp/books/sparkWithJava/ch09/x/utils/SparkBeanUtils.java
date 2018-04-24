@@ -175,6 +175,9 @@ public class SparkBeanUtils {
     }
   }
 
+  /**
+   * Build the column name from the column name or the method name.
+   */
   private static String buildColumnName(String columnName, String methodName) {
     if (columnName.length() > 0) {
       return columnName;

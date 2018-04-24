@@ -93,6 +93,7 @@ public class PhotoMetadata implements Serializable {
   /**
    * @return the geoX
    */
+  @SparkColumn(type = "float")
   public Float getGeoX() {
     return geoX;
   }
