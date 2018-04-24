@@ -15,6 +15,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * The bean utils helps with the creation of the Schema from a bean and with
+ * filling a row with the data.
  * 
  * @author jgp
  */
@@ -22,6 +24,14 @@ public class SparkBeanUtils {
   private static transient Logger log = LoggerFactory
       .getLogger(SparkBeanUtils.class);
 
+  /**
+   * Builds a schema from the bean. The resulting schema is not directly usable
+   * by Spark as it is a super set of what is needed.
+   * 
+   * @param c
+   *          The bean to analyse
+   * @return The Schema
+   */
   public static Schema getSchemaFromBean(Class<?> c) {
     Schema schema = new Schema();
     SchemaColumn col;
@@ -33,7 +43,7 @@ public class SparkBeanUtils {
       if (!isGetter(method)) {
         continue;
       }
-      
+
       // The method we are working on is a getter
       String methodName = method.getName();
       col = new SchemaColumn();
@@ -43,7 +53,7 @@ public class SparkBeanUtils {
       String columnName;
       DataType dataType;
       boolean nullable;
-      
+
       // Does it have specific annotation?
       SparkColumn sparkColumn = method.getAnnotation(SparkColumn.class);
       if (sparkColumn == null) {
@@ -140,34 +150,28 @@ public class SparkBeanUtils {
    * @return
    */
   private static DataType getDataTypeFromReturnType(Method method) {
-    String typeName = method.getReturnType().getSimpleName();
+    String typeName = method.getReturnType().getSimpleName().toLowerCase();
     switch (typeName) {
       case "int":
-      case "Integer":
+      case "integer":
         return DataTypes.IntegerType;
       case "long":
-      case "Long":
         return DataTypes.LongType;
       case "float":
-      case "Float":
         return DataTypes.FloatType;
       case "boolean":
-      case "Boolean":
         return DataTypes.BooleanType;
       case "double":
-      case "Double":
         return DataTypes.DoubleType;
-      case "String":
+      case "string":
         return DataTypes.StringType;
-      case "Date":
       case "date":
         return DataTypes.DateType;
-      case "Timestamp":
+      case "timestamp":
         return DataTypes.TimestampType;
       case "short":
-      case "Short":
         return DataTypes.ShortType;
-      case "Object":
+      case "object":
         return DataTypes.BinaryType;
       default:
         log.debug("Using default for type [{}]", typeName);
