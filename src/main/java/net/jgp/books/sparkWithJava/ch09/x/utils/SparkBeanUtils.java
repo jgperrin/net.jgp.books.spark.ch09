@@ -30,11 +30,12 @@ public class SparkBeanUtils {
     Method[] methods = c.getDeclaredMethods();
     for (int i = 0; i < methods.length; i++) {
       Method method = methods[i];
-      String methodName = method.getName();
-      if (methodName.toLowerCase().startsWith("get") == false) {
+      if (!isGetter(method)) {
         continue;
       }
-
+      
+      // The method we are working on is a getter
+      String methodName = method.getName();
       col = new SchemaColumn();
       col.setMethodName(methodName);
 
@@ -42,6 +43,8 @@ public class SparkBeanUtils {
       String columnName;
       DataType dataType;
       boolean nullable;
+      
+      // Does it have specific annotation?
       SparkColumn sparkColumn = method.getAnnotation(SparkColumn.class);
       if (sparkColumn == null) {
         log.debug("No annotation for method {}", methodName);
@@ -54,44 +57,58 @@ public class SparkBeanUtils {
             methodName,
             columnName);
 
-        switch (sparkColumn.type().getSimpleName()) {
-          case "StringType":
+        switch (sparkColumn.type().toLowerCase()) {
+          case "stringtype":
+          case "string":
             dataType = DataTypes.StringType;
             break;
-          case "BinaryType":
+          case "binarytype":
+          case "binary":
             dataType = DataTypes.BinaryType;
             break;
-          case "BooleanType":
+          case "booleantype":
+          case "boolean":
             dataType = DataTypes.BooleanType;
             break;
-          case "DateType":
+          case "datetype":
+          case "date":
             dataType = DataTypes.DateType;
             break;
-          case "TimestampType":
+          case "timestamptype":
+          case "timestamp":
             dataType = DataTypes.TimestampType;
             break;
-          case "CalendarIntervalType":
+          case "calendarintervaltype":
+          case "calendarinterval":
             dataType = DataTypes.CalendarIntervalType;
             break;
-          case "DoubleType":
+          case "doubletype":
+          case "double":
             dataType = DataTypes.DoubleType;
             break;
-          case "FloatType":
+          case "floattype":
+          case "float":
             dataType = DataTypes.FloatType;
             break;
-          case "ByteType":
+          case "bytetype":
+          case "byte":
             dataType = DataTypes.ByteType;
             break;
-          case "IntegerType":
+          case "integertype":
+          case "integer":
+          case "int":
             dataType = DataTypes.IntegerType;
             break;
-          case "LongType":
+          case "longtype":
+          case "long":
             dataType = DataTypes.LongType;
             break;
-          case "ShortType":
+          case "shorttype":
+          case "short":
             dataType = DataTypes.ShortType;
             break;
-          case "NullType":
+          case "nulltype":
+          case "null":
             dataType = DataTypes.NullType;
             break;
           default:
@@ -205,4 +222,30 @@ public class SparkBeanUtils {
     return row;
   }
 
+  /**
+   * Return true if the method passed as an argument is a getter, respecting the
+   * following definition:
+   * <ul>
+   * <li>starts with get</li>
+   * <li>does not have any parameter</li>
+   * <li>does not return null
+   * <li>
+   * </ul>
+   * 
+   * @param method
+   *          method to check
+   * @return
+   */
+  private static boolean isGetter(Method method) {
+    if (!method.getName().startsWith("get")) {
+      return false;
+    }
+    if (method.getParameterTypes().length != 0) {
+      return false;
+    }
+    if (void.class.equals(method.getReturnType())) {
+      return false;
+    }
+    return true;
+  }
 }

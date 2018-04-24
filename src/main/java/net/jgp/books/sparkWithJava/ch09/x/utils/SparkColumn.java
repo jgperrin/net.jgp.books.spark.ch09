@@ -3,8 +3,6 @@ package net.jgp.books.sparkWithJava.ch09.x.utils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import org.apache.spark.sql.types.DataType;
-
 /**
  * Simple annotation to extend and ease the Javabean metadata when converting to
  * a Spark column in a dataframe.
@@ -22,7 +20,7 @@ public @interface SparkColumn {
   /**
    * Forces the data type of the column
    */
-  Class<? extends DataType> type() default DataType.class;
+  String type() default "";
 
   /**
    * Forces the required/nullable property

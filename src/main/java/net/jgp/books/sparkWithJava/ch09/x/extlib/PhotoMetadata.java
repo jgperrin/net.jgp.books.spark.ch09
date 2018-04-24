@@ -5,11 +5,19 @@ import java.nio.file.attribute.FileTime;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import org.apache.spark.sql.types.DataType;
+import org.apache.spark.sql.types.DataTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.jgp.books.sparkWithJava.ch09.x.utils.SparkColumn;
 
+/**
+ * A good old JavaBean containing the EXIF properties as well as the SparkColumn
+ * annotation.
+ * 
+ * @author jgp
+ */
 public class PhotoMetadata implements Serializable {
   private static transient Logger log = LoggerFactory.getLogger(
       PhotoMetadata.class);
