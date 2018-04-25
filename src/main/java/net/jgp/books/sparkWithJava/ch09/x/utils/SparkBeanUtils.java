@@ -21,8 +21,9 @@ import org.slf4j.LoggerFactory;
  * @author jgp
  */
 public class SparkBeanUtils {
-  private static transient Logger log = LoggerFactory
+  private static Logger log = LoggerFactory
       .getLogger(SparkBeanUtils.class);
+  private static int columnIndex = -1;
 
   /**
    * Builds a schema from the bean. The resulting schema is not directly usable
@@ -34,7 +35,6 @@ public class SparkBeanUtils {
    */
   public static Schema getSchemaFromBean(Class<?> c) {
     Schema schema = new Schema();
-    SchemaColumn col;
     List<StructField> sfl = new ArrayList<>();
 
     Method[] methods = c.getDeclaredMethods();
@@ -46,7 +46,7 @@ public class SparkBeanUtils {
 
       // The method we are working on is a getter
       String methodName = method.getName();
-      col = new SchemaColumn();
+      SchemaColumn col = new SchemaColumn();
       col.setMethodName(methodName);
 
       // We have a public method starting with get
@@ -122,7 +122,8 @@ public class SparkBeanUtils {
             dataType = DataTypes.NullType;
             break;
           default:
-            log.debug("Will infer data type from return type for column {}",
+            log.debug(
+                "Will infer data type from return type for column {}",
                 columnName);
             dataType = getDataTypeFromReturnType(method);
         }
@@ -131,11 +132,12 @@ public class SparkBeanUtils {
       }
 
       String finalColumnName = buildColumnName(columnName, methodName);
-      sfl.add(DataTypes.createStructField(finalColumnName, dataType, nullable));
+      sfl.add(DataTypes.createStructField(
+          finalColumnName, dataType, nullable));
       col.setColumnName(finalColumnName);
 
       schema.add(col);
-    }
+    } // end for
 
     StructType sparkSchema = DataTypes.createStructType(sfl);
     schema.setSparkSchema(sparkSchema);
@@ -180,15 +182,23 @@ public class SparkBeanUtils {
   }
 
   /**
-   * Build the column name from the column name or the method name.
+   * Build the column name from the column name or the method name. This method
+   * should be improved to ensure name unicity.
    */
   private static String buildColumnName(String columnName, String methodName) {
     if (columnName.length() > 0) {
       return columnName;
     }
+    if (methodName.length() < 4) {
+      // Very simplistic
+      columnIndex++;
+      return "_c" + columnIndex;
+    }
     columnName = methodName.substring(3);
     if (columnName.length() == 0) {
-      return "_c0";
+      // Very simplistic
+      columnIndex++;
+      return "_c" + columnIndex;
     }
     return columnName;
   }
