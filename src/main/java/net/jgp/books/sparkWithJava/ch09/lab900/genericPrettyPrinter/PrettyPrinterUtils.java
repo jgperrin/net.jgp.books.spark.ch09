@@ -24,6 +24,7 @@ public class PrettyPrinterUtils {
       System.out.print(methodName.substring(3));
       System.out.print(": ");
       try {
+        // Invoke the method on the object o
         System.out.println(method.invoke(o));
       } catch (IllegalAccessException e) {
         System.err.println("The method " + methodName
