@@ -84,7 +84,7 @@ public class ExifDirectoryRelation
    */
   private List<PhotoMetadata> collectData() {
     List<File> photosToProcess = this.photoLister.getFiles();
-    List<PhotoMetadata> list = new ArrayList<PhotoMetadata>();
+    List<PhotoMetadata> list = new ArrayList<>();
     PhotoMetadata photo;
 
     for (File photoToProcess : photosToProcess) {
