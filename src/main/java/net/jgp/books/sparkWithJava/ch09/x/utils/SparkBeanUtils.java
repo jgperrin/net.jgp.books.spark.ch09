@@ -29,15 +29,15 @@ public class SparkBeanUtils {
    * Builds a schema from the bean. The resulting schema is not directly usable
    * by Spark as it is a super set of what is needed.
    * 
-   * @param c
-   *          The bean to analyse
+   * @param beanClass
+   *          The bean to analyze
    * @return The Schema
    */
-  public static Schema getSchemaFromBean(Class<?> c) {
+  public static Schema getSchemaFromBean(Class<?> beanClass) {
     Schema schema = new Schema();
     List<StructField> sfl = new ArrayList<>();
 
-    Method[] methods = c.getDeclaredMethods();
+    Method[] methods = beanClass.getDeclaredMethods();
     for (int i = 0; i < methods.length; i++) {
       Method method = methods[i];
       if (!isGetter(method)) {
