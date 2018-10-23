@@ -3,7 +3,7 @@ package net.jgp.books.sparkWithJava.ch09.x.ds.exif;
 import org.apache.spark.sql.sources.DataSourceRegister;
 
 /**
- * Defines the "short name"
+ * Defines the "short name" for the data source
  * 
  * @author jgp
  */
