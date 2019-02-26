@@ -1,4 +1,4 @@
-package net.jgp.books.sparkWithJava.ch09.x.ds.exif;
+package net.jgp.books.spark.ch09.x.ds.exif;
 
 import java.io.File;
 import java.io.Serializable;
@@ -16,11 +16,11 @@ import org.apache.spark.sql.types.StructType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.jgp.books.sparkWithJava.ch09.x.extlib.ExifUtils;
-import net.jgp.books.sparkWithJava.ch09.x.extlib.PhotoMetadata;
-import net.jgp.books.sparkWithJava.ch09.x.extlib.RecursiveExtensionFilteredLister;
-import net.jgp.books.sparkWithJava.ch09.x.utils.Schema;
-import net.jgp.books.sparkWithJava.ch09.x.utils.SparkBeanUtils;
+import net.jgp.books.spark.ch09.x.extlib.ExifUtils;
+import net.jgp.books.spark.ch09.x.extlib.PhotoMetadata;
+import net.jgp.books.spark.ch09.x.extlib.RecursiveExtensionFilteredLister;
+import net.jgp.books.spark.ch09.x.utils.Schema;
+import net.jgp.books.spark.ch09.x.utils.SparkBeanUtils;
 
 /**
  * Build a relation to return the EXIF data of photos in a directory.

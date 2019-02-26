@@ -1,4 +1,4 @@
-package net.jgp.books.sparkWithJava.ch09.x.ds.exif;
+package net.jgp.books.spark.ch09.x.ds.exif;
 
 import org.apache.spark.sql.sources.DataSourceRegister;
 

@@ -1,4 +1,4 @@
-package net.jgp.books.sparkWithJava.ch09.x.ds.exif;
+package net.jgp.books.spark.ch09.x.ds.exif;
 
 import static scala.collection.JavaConverters.mapAsJavaMapConverter;
 
@@ -8,8 +8,8 @@ import org.apache.spark.sql.sources.RelationProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.jgp.books.sparkWithJava.ch09.x.extlib.RecursiveExtensionFilteredLister;
-import net.jgp.books.sparkWithJava.ch09.x.utils.K;
+import net.jgp.books.spark.ch09.x.extlib.RecursiveExtensionFilteredLister;
+import net.jgp.books.spark.ch09.x.utils.K;
 import scala.collection.immutable.Map;
 
 /**

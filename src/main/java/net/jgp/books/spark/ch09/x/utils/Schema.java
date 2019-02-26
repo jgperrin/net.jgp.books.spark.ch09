@@ -1,4 +1,4 @@
-package net.jgp.books.sparkWithJava.ch09.x.utils;
+package net.jgp.books.spark.ch09.x.utils;
 
 import java.io.Serializable;
 import java.util.HashMap;

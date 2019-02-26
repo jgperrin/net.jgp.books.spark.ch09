@@ -1,4 +1,4 @@
-package net.jgp.books.sparkWithJava.ch09.x.extlib;
+package net.jgp.books.spark.ch09.x.extlib;
 
 import java.io.Serializable;
 import java.nio.file.attribute.FileTime;
@@ -8,7 +8,7 @@ import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.jgp.books.sparkWithJava.ch09.x.utils.SparkColumn;
+import net.jgp.books.spark.ch09.x.utils.SparkColumn;
 
 /**
  * A good old JavaBean containing the EXIF properties as well as the SparkColumn

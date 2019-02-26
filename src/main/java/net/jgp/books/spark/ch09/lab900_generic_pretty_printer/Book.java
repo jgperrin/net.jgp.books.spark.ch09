@@ -1,4 +1,4 @@
-package net.jgp.books.sparkWithJava.ch09.lab900.genericPrettyPrinter;
+package net.jgp.books.spark.ch09.lab900_generic_pretty_printer;
 
 public class Book {
   private String title;

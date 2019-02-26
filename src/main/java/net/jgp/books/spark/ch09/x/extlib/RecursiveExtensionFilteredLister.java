@@ -1,4 +1,4 @@
-package net.jgp.books.sparkWithJava.ch09.x.extlib;
+package net.jgp.books.spark.ch09.x.extlib;
 
 import java.io.File;
 import java.io.Serializable;

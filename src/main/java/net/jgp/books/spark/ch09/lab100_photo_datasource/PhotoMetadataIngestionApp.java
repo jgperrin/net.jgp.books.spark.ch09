@@ -1,4 +1,4 @@
-package net.jgp.books.sparkWithJava.ch09.lab100.photoDatasource;
+package net.jgp.books.spark.ch09.lab100_photo_datasource;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
