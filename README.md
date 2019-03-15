@@ -2,7 +2,7 @@ The examples in this repository are support to the **[Spark in Action, 2nd editi
 
 # Spark in Action, 2nd edition - chapter 9
 
-Welcome to Spark with Java, chapter 9. This chapter covers advanced ingestion.
+Welcome to Spark with Java, chapter 9. This chapter covers advanced ingestion, including writing your own custom data source with Java.
 
 Notes: 
  1. Due to renaming the packages to match more closely Java standards, this project is not in sync with the book's MEAP prior to v10.
