@@ -62,7 +62,8 @@ public class ExifDirectoryRelation
     log.debug("-> buildScan()");
     schema();
 
-    // I have isolated the work to a method to keep the plumbing code as simple
+    // I have isolated the work to a method to keep the plumbing code as
+    // simple
     // as possible.
     List<PhotoMetadata> table = collectData();
 
@@ -76,9 +77,9 @@ public class ExifDirectoryRelation
   }
 
   /**
-   * Interface with the real world: the "plumbing" between Spark and existing
-   * data, in our case the classes in charge of reading the information from the
-   * photos.
+   * Interface with the real world: the "plumbing" between Spark and
+   * existing data, in our case the classes in charge of reading the
+   * information from the photos.
    * 
    * The list of photos will be "mapped" and transformed into a Row.
    */

@@ -11,8 +11,8 @@ import org.slf4j.LoggerFactory;
 import net.jgp.books.spark.ch09.x.utils.SparkColumn;
 
 /**
- * A good old JavaBean containing the EXIF properties as well as the SparkColumn
- * annotation.
+ * A good old JavaBean containing the EXIF properties as well as the
+ * SparkColumn annotation.
  * 
  * @author jgp
  */

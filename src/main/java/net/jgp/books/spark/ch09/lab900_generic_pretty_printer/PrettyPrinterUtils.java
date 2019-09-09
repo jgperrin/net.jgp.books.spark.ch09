@@ -43,8 +43,8 @@ public class PrettyPrinterUtils {
   }
 
   /**
-   * Return true if the method passed as an argument is a getter, respecting the
-   * following definition:
+   * Return true if the method passed as an argument is a getter, respecting
+   * the following definition:
    * <ul>
    * <li>starts with get</li>
    * <li>does not have any parameter</li>

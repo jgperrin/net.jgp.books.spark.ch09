@@ -26,8 +26,8 @@ public class SparkBeanUtils {
   private static int columnIndex = -1;
 
   /**
-   * Builds a schema from the bean. The resulting schema is not directly usable
-   * by Spark as it is a super set of what is needed.
+   * Builds a schema from the bean. The resulting schema is not directly
+   * usable by Spark as it is a super set of what is needed.
    * 
    * @param beanClass
    *          The bean to analyze
@@ -145,8 +145,8 @@ public class SparkBeanUtils {
   }
 
   /**
-   * Returns a Spark datatype from the method, by analyzing the method's return
-   * type.
+   * Returns a Spark datatype from the method, by analyzing the method's
+   * return type.
    * 
    * @param method
    * @return
@@ -182,10 +182,11 @@ public class SparkBeanUtils {
   }
 
   /**
-   * Build the column name from the column name or the method name. This method
-   * should be improved to ensure name unicity.
+   * Build the column name from the column name or the method name. This
+   * method should be improved to ensure name unicity.
    */
-  private static String buildColumnName(String columnName, String methodName) {
+  private static String buildColumnName(String columnName,
+      String methodName) {
     if (columnName.length() > 0) {
       return columnName;
     }
@@ -248,8 +249,8 @@ public class SparkBeanUtils {
   }
 
   /**
-   * Return true if the method passed as an argument is a getter, respecting the
-   * following definition:
+   * Return true if the method passed as an argument is a getter, respecting
+   * the following definition:
    * <ul>
    * <li>starts with get</li>
    * <li>does not have any parameter</li>

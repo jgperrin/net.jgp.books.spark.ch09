@@ -87,8 +87,8 @@ public class RecursiveExtensionFilteredLister implements Serializable {
   }
 
   /**
-   * Returns a list of files based on the criteria given by setters (or default
-   * values)
+   * Returns a list of files based on the criteria given by setters (or
+   * default values)
    * 
    * @return a list of files
    */

@@ -26,7 +26,8 @@ public class ExifUtils {
   private static transient Logger log = LoggerFactory.getLogger(
       ExifUtils.class);
 
-  public static PhotoMetadata processFromFilename(String absolutePathToPhoto) {
+  public static PhotoMetadata
+      processFromFilename(String absolutePathToPhoto) {
     PhotoMetadata photo = new PhotoMetadata();
     photo.setFilename(absolutePathToPhoto);
 
@@ -91,7 +92,8 @@ public class ExifUtils {
     Directory exifSubIFDDirectory = metadata.getFirstDirectoryOfType(
         ExifSubIFDDirectory.class);
     if (exifSubIFDDirectory != null) {
-      Date d = exifSubIFDDirectory.getDate(36867, TimeZone.getTimeZone("EST"));
+      Date d =
+          exifSubIFDDirectory.getDate(36867, TimeZone.getTimeZone("EST"));
       if (d != null) {
         photo.setDateTaken(d);
       }
@@ -110,8 +112,9 @@ public class ExifUtils {
       // e.getMessage(), e.getClass().getName());
       // }
       try {
-        photo.setGeoY(getDecimalCoordinatesAsFloat(gpsDirectory.getString(3),
-            gpsDirectory.getRationalArray(4)));
+        photo
+            .setGeoY(getDecimalCoordinatesAsFloat(gpsDirectory.getString(3),
+                gpsDirectory.getRationalArray(4)));
       } catch (Exception e) {
         log.warn(
             "Issue while extracting longitude GPS info from {}. Got {} ({}). Ignoring GPS info.",
@@ -151,11 +154,13 @@ public class ExifUtils {
     }
 
     float m = 1;
-    if (orientation.toUpperCase().charAt(0) == 'S' || orientation.toUpperCase()
-        .charAt(0) == 'W') {
+    if (orientation.toUpperCase().charAt(0) == 'S'
+        || orientation.toUpperCase()
+            .charAt(0) == 'W') {
       m = -1;
     }
-    float deg = coordinates[0].getNumerator() / coordinates[0].getDenominator();
+    float deg =
+        coordinates[0].getNumerator() / coordinates[0].getDenominator();
     float min = coordinates[1].getNumerator() * 60 * coordinates[2]
         .getDenominator();
     float sec = coordinates[2].getNumerator();

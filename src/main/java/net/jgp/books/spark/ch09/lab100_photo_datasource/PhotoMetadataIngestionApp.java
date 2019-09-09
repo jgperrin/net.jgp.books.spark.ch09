@@ -5,8 +5,8 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 /**
- * Ingest metadata from a directory containing photos, make them available as
- * EXIF.
+ * Ingest metadata from a directory containing photos, make them available
+ * as EXIF.
  * 
  * @author jgp
  */

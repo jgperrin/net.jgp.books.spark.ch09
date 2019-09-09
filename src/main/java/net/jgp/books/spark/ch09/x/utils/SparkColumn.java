@@ -4,8 +4,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * Simple annotation to extend and ease the Javabean metadata when converting to
- * a Spark column in a dataframe.
+ * Simple annotation to extend and ease the Javabean metadata when
+ * converting to a Spark column in a dataframe.
  * 
  * @author jgp
  */
