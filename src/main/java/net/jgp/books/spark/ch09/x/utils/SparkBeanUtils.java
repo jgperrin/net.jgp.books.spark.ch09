@@ -21,8 +21,7 @@ import org.slf4j.LoggerFactory;
  * @author jgp
  */
 public class SparkBeanUtils {
-  private static Logger log = LoggerFactory
-      .getLogger(SparkBeanUtils.class);
+  private static Logger log = LoggerFactory.getLogger(SparkBeanUtils.class);
   private static int columnIndex = -1;
 
   /**
