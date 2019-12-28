@@ -1,4 +1,4 @@
-package net.jgp.books.spark.ch09.lab101_photo_datasource_no_short_name;
+package net.jgp.books.spark.ch09.lab400_photo_datasource;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -10,10 +10,9 @@ import org.apache.spark.sql.SparkSession;
  * 
  * @author jgp
  */
-public class PhotoMetadataIngestionNoShortNameApp {
+public class PhotoMetadataIngestionApp {
   public static void main(String[] args) {
-    PhotoMetadataIngestionNoShortNameApp app =
-        new PhotoMetadataIngestionNoShortNameApp();
+    PhotoMetadataIngestionApp app = new PhotoMetadataIngestionApp();
     app.start();
   }
 
@@ -33,8 +32,7 @@ public class PhotoMetadataIngestionNoShortNameApp {
 
     // read the data
     Dataset<Row> df = spark.read()
-        .format(
-            "net.jgp.books.spark.ch09.x.ds.exif.ExifDirectoryDataSourceShortnameAdvertiser")
+        .format("exif")
         .option("recursive", "true")
         .option("limit", "100000")
         .option("extensions", "jpg,jpeg")
