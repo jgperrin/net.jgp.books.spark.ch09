@@ -50,7 +50,7 @@ You will need:
 4. Run Spark/Scala application using spark-submit command as shown below:
 
    ```
-   spark-submit --class net.jgp.books.spark.ch09.lab100_photo_datasource.PhotoMetadataIngestionScalaApp target/scala-2.12/SparkInAction2-Chapter09-assembly-1.0.0.jar  
+   spark-submit --class net.jgp.books.spark.ch09.lab400_photo_datasource.PhotoMetadataIngestionScalaApp target/scala-2.12/SparkInAction2-Chapter09-assembly-1.0.0.jar  
    ```
 
 ## News
