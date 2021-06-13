@@ -18,7 +18,7 @@ The `PhotoMetadataIngestionApp` application does the following:
 2.	It asks Spark to load (ingest) a dataset in 'exif' format.
 3.	Spark stores the contents in a dataframe, then print the records.
 
-### Lab \#400
+### Lab \#401
 
 Similar to lab #400, without using the short name.
 
